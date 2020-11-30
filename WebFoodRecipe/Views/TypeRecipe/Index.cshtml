@@ -1,0 +1,41 @@
+﻿@using PagedList.Mvc
+
+@model PagedList.IPagedList<Models.EF.type_recipe>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAll.cshtml";
+}
+
+
+<!-- ##### Catagory Area Start ##### -->
+<div class="post-catagory section-padding-100">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <!-- Single Post Catagory -->
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="single-post-catagory mb-30">
+                        <img src="@item.image" alt="">
+                        <!-- Content -->
+                        <div class="catagory-content-bg">
+                            <div class="catagory-content">
+                                <a href="@Url.Action("Index","FoodRecipe", new {id_type = item.id})" class="post-tag">Loại công thức</a>
+                                <a href="@Url.Action("Index","FoodRecipe", new {id_type = item.id})" class="post-title">@item.name</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <link rel="stylesheet" type="text/css" href="~/Content/faq/bootstrap/css/bootstrap.min.css" />
+        <script type="text/javascript" src="~/Content/faq/bootstrap/js/bootstrap.min.js"></script>
+        <div class="row">
+            <div class="col-12">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, order = ViewBag.OrderBy }))
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### Catagory Area End ##### -->

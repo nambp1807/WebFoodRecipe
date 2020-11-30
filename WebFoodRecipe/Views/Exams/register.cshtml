@@ -1,0 +1,43 @@
+﻿@model WebFoodRecipe.Models.ExamRegister
+
+@{
+    ViewBag.Title = "register";
+    Layout = "~/Views/Shared/_LayoutAll.cshtml";
+}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="post-a-comment-area mb-30 clearfix">
+                <h4 class="mb-50">Đăng ký tham gia</h4>
+                <div class="contact-form-area">
+                    @using (Html.BeginForm("register", "Exam", FormMethod.Post))
+                    {
+                        if (ViewBag.registermess != null)
+                        {
+                            @ViewBag.registermess
+                        }
+                        Html.ValidationSummary();
+                        <div class="row">
+
+                            <div class="col-12 col-lg-6">
+                                @Html.TextBoxFor(Model => Model.name, new { @type = "text", @class = "form-control", @id = "name", @placeholder = "Name*" })
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                @Html.TextBoxFor(Model => Model.email, new { @type = "email", @class = "form-control", @id = "email", @placeholder = "Email*" })
+                            </div>
+
+                            <div class="col-12">
+                                @Html.TextAreaFor(Model => Model.content, new { @name = "message", @class = "form-control", @id = "message", @cols = "30", @rows = "10", @placeholder = "Message" })
+                            </div>
+                            <div hidden>@Model.idExam = @ViewBag.examsID</div>
+                            <div class="col-12">
+                                <button class="btn bueno-btn mt-30" type="submit">Register</button>
+                            </div>
+
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Reply Form -->

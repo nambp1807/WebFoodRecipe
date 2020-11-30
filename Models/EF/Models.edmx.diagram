@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="40c1174321de43ac910c37771c4a3be7" Name="Diagram1">
+        <EntityTypeShape EntityType="food_recipeModel.account" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="food_recipeModel.account_role" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="food_recipeModel.comment" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="food_recipeModel.contact_feedback" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="food_recipeModel.exam" Width="1.5" PointX="2.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="food_recipeModel.faq" Width="1.5" PointX="4.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="food_recipeModel.food_recipe" Width="1.5" PointX="8.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="food_recipeModel.food_recipe_detail" Width="1.5" PointX="10.5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="food_recipeModel.register" Width="1.5" PointX="6.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="food_recipeModel.type_recipe" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="food_recipeModel.account_comment_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="food_recipeModel.account_role_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="food_recipeModel.author_account_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="food_recipeModel.food_recipe_comment_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="food_recipeModel.recipe_details_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="food_recipeModel.recipe_type_fk" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

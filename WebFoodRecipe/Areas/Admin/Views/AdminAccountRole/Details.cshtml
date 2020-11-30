@@ -1,0 +1,33 @@
+﻿@model Models.EF.account_role
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div>
+                        <h4>account_role</h4>
+                        <hr />
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.type)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.type)
+                            </dd>
+
+                        </dl>
+                    </div>
+                    <p>
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+                        @Html.ActionLink("Back to List", "Index")
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    

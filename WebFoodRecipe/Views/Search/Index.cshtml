@@ -1,0 +1,54 @@
+﻿@using PagedList.Mvc
+
+@model PagedList.IPagedList<Models.EF.food_recipe>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAll.cshtml";
+}
+<!-- ##### Catagory Post Area Start ##### -->
+<div class="catagory-post-area section-padding-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <!-- Post Area -->
+            <div class="col-12 col-lg-8 col-xl-9">
+                @if(ViewBag.SearchMess != null)
+                {
+                    @ViewBag.SearchMess
+                }
+                <!-- Single Blog Post -->
+                @foreach (var item in Model)
+                {
+                    <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+                        <!-- Blog Thumbnail -->
+                        <div class="blog-thumbnail">
+                            <img src="@item.image" alt="">
+                        </div>
+                        <!-- Blog Content -->
+                        <div class="blog-content">
+                            <a href="#" class="post-tag">Công thức</a>
+                            <a href="@Url.Action("Details","FoodRecipe", new {id = item.id })" class="post-title">@item.name</a>
+                            <div class="post-meta">
+                                <a href="@Url.Action("Details","FoodRecipe", new {id = item.id })" class="post-date">@item.created_at</a>
+                                <a href="@Url.Action("Details","FoodRecipe", new {id = item.id })" class="post-author">By @item.account.name</a>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus.</p>
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+
+        </div>
+        <link rel="stylesheet" type="text/css" href="~/Content/faq/bootstrap/css/bootstrap.min.css" />
+        <div class="row">
+            <div class="col-12">
+                <div class="pagination-area mt-70">
+                    @Html.PagedListPager(Model, page => Url.Action("Index/", new { searchModel = ViewBag.searchString, page, id_type = ViewBag.Type }))
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ##### Catagory Post Area End ##### -->

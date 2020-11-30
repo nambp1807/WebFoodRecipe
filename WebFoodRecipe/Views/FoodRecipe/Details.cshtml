@@ -1,0 +1,49 @@
+﻿@model Models.EF.food_recipe
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAll.cshtml";
+    var getList = ViewBag.FoodRecipeDetail as IEnumerable<Models.EF.food_recipe_detail>;
+}
+    <section class="post-news-area section-padding-100-0 mb-70">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- Post Details Content Area -->
+                <div class="col-12 col-lg-4 col-xl-5">
+                    <div class="post-details-content mb-100">
+                        <div class="blog-thumbnail mb-50">
+                            <img src="@Model.image" alt="">
+                        </div>
+                        <div class="blog-content">
+                            <a href="#" class="post-tag">Công thức</a>
+                            <h4 class="post-title">@Model.name</h4>
+                            <div class="post-meta mb-50">
+                                <a href="#" class="post-date">@Model.created_at</a>
+                                <a href="#" class="post-author">By @Model.account.name</a>
+                            </div>
+                            @foreach (var item in getList)
+                            {
+                                <h5 class="mb-30">Step @item.step</h5>
+                                <p class="mb-30">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac tincidunt nunc. Cras sed mollis erat. Quisque risus lorem, mattis nec nisl a, efficitur faucibus ligula. Nulla facilisi. Integer sodales, metus nec finibus lobortis, ex justo pharetra quam, vel vehicula urna turpis ut risus. Sed dignissim erat sapien, non malesuada justo cursus nec. Nunc porta pulvinar varius.</p>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-4 col-xl-4">
+                     Info 
+                    <div class="recipe-info">
+                        <h5>Info</h5>
+                        <ul class="info-data">
+                            <li><img src="~/Images/img/core-img/eye.png" alt=""> <span>1,577 Views</span></li>
+                            <li><img src="~/Images/img/core-img/alarm-clock.png" alt=""> <span>30 min</span></li>
+                            <li><img src="~/Images/img/core-img/tray.png" alt=""> <span>Serves 4</span></li>
+                            <li><img src="~/Images/img/core-img/sandwich.png" alt=""> <span>Easy</span></li>
+                            <li><img src="~/Images/img/core-img/compass.png" alt=""> <span>200F</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

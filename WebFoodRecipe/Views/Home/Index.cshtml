@@ -1,0 +1,135 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    var getExam = ViewBag.Exam as IEnumerable<Models.EF.exam>;
+    var getNewFood = ViewBag.FoodNew as IEnumerable<Models.EF.food_recipe>;
+    var getNewFoodFree = ViewBag.FoodNewFree as IEnumerable<Models.EF.food_recipe>;
+}
+<!-- ##### Hero Area Start ##### -->
+<div class="hero-area">
+    @if (ViewBag.SearchMess != null)
+    {
+        @ViewBag.SearchMess
+    }
+    <!-- Hero Post Slides -->
+    <div class="hero-post-slides owl-carousel">
+        @{
+            foreach (var item in getExam)
+            {
+                <!-- Single Slide -->
+                <div class="single-slide">
+                    <!-- Blog Thumbnail -->
+                    <div class="blog-thumbnail">
+                        <a href="@Url.Action("Details","Exams", new { id = item.id })"><img src="@item.image" alt=""></a>
+                    </div>
+
+                    <!-- Blog Content -->
+                    <div class="blog-content-bg">
+                        <div class="blog-content">
+                            <a href="#" class="post-tag">Exam</a>
+                            <a href="@Url.Action("Details","Exams", new { id = item.id })" class="post-title">@item.name</a>
+                            <div class="post-meta">
+                                <a href="@Url.Action("Details","Exams", new { id = item.id })" class="post-date">July 11, 2018</a>
+                                <a href="@Url.Action("Details","Exams", new { id = item.id })" class="post-author">By Julia Stiles</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<!-- ##### Hero Area End ##### -->
+<!-- ##### Catagory Area Start ##### -->
+<div class="post-catagory section-padding-100-0 mb-70">
+    <div class="container">
+        <div class="row justify-content-center">
+            @{if (getNewFood != null)
+                {
+                    foreach (var item in getNewFood)
+                    {
+                        <!-- Single Post Catagory -->
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="single-post-catagory mb-30">
+                                <img src="@item.image" alt="">
+                                <!-- Content -->
+                                <div class="catagory-content-bg">
+                                    <div class="catagory-content">
+                                        <a href="@Url.Action("Details", "FoodRecipe", new { id = item.id})" class="post-tag">Công thức mới trả phí</a>
+                                        <a href="@Url.Action("Details", "FoodRecipe", new { id = item.id})" class="post-title">@item.name</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        </div>
+    </div>
+</div>
+<!-- ##### Catagory Area End ##### -->
+<!-- ##### Big Posts Area Start ##### -->
+<div class="big-posts-area mb-50">
+    <div class="container">
+        @{
+            foreach (var item in getNewFoodFree)
+            {
+                <!-- Single Big Post Area -->
+                <div class="row align-items-center">
+                    <div class="col-12 col-md-6">
+                        <div class="big-post-thumbnail mb-50">
+                            <img src="@item.image" alt="">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="big-post-content text-center mb-50">
+                            <a href="@Url.Action("Details", "FoodRecipe", new { id = item.id})" class="post-tag">Công thức mới miễn phí</a>
+                            <a href="@Url.Action("Details", "FoodRecipe", new { id = item.id})" class="post-title">@item.name</a>
+                            <div class="post-meta">
+                                <a href="@Url.Action("Details", "FoodRecipe", new { id = item.id})" class="post-date">@item.created_at</a>
+                                <a href="@Url.Action("Details", "FoodRecipe", new { id = item.id})" class="post-author">@item.account.name</a>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus, egestas tincidunt augue pellentesque. Suspendisse vestibulum sem in eros maximus, pretium commodo turpis convallis. Aenean scelerisque orci quis urna tempus, vitae interdum velit aliquet.</p>
+                            <a href="#" class="btn bueno-btn">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+<!-- ##### Big Posts Area End ##### -->
+<!-- ##### Posts Area End ##### -->
+@if (getNewFood != null)
+{
+    <div class="bueno-post-area mb-70">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- Post Area -->
+                <div class="col-12 col-lg-8 col-xl-9">
+                    <!-- Single Blog Post -->
+                    @foreach (var item in getNewFood)
+                    {
+                        <div class="single-blog-post style-1 d-flex flex-wrap mb-30">
+                            <!-- Blog Thumbnail -->
+                            <div class="blog-thumbnail">
+                                <img src="@item.image" alt="">
+                            </div>
+                            <!-- Blog Content -->
+                            <div class="blog-content">
+                                <a href="@Url.Action("Details", "FoodRecipe", new { id = item.id})" class="post-tag">công thức mới trả phí</a>
+                                <a href="@Url.Action("Details", "FoodRecipe", new { id = item.id})" class="post-title">@item.name</a>
+                                <div class="post-meta">
+                                    <a href="@Url.Action("Details", "FoodRecipe", new { id = item.id})" class="post-date">@item.created_at</a>
+                                    <a href="@Url.Action("Details", "FoodRecipe", new { id = item.id})" class="post-author">By @item.account.name</a>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tristique justo id elit bibendum pharetra non vitae lectus. Mauris libero felis, dapibus a ultrices sed, commodo vitae odio. Sed auctor tellus quis arcu tempus.</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<!-- ##### Posts Area End ##### -->

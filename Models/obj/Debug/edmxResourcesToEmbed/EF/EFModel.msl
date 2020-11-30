@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="web_food_recipeModelStoreContainer" CdmEntityContainer="web_food_recipe_Entities">
+    <EntitySetMapping Name="accounts">
+      <EntityTypeMapping TypeName="web_food_recipeModel.account">
+        <MappingFragment StoreEntitySet="account">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="number_phone" ColumnName="number_phone" />
+          <ScalarProperty Name="power" ColumnName="power" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="comments">
+      <EntityTypeMapping TypeName="web_food_recipeModel.comment">
+        <MappingFragment StoreEntitySet="comment">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_account" ColumnName="id_account" />
+          <ScalarProperty Name="id_food_recipe" ColumnName="id_food_recipe" />
+          <ScalarProperty Name="id_faq" ColumnName="id_faq" />
+          <ScalarProperty Name="content" ColumnName="content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="faq_question">
+      <EntityTypeMapping TypeName="web_food_recipeModel.faq_question">
+        <MappingFragment StoreEntitySet="faq_question">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="question" ColumnName="question" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="food_recipe">
+      <EntityTypeMapping TypeName="web_food_recipeModel.food_recipe">
+        <MappingFragment StoreEntitySet="food_recipe">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_type" ColumnName="id_type" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="pay_the_fee" ColumnName="pay_the_fee" />
+          <ScalarProperty Name="admin_check" ColumnName="admin_check" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="images">
+      <EntityTypeMapping TypeName="web_food_recipeModel.image">
+        <MappingFragment StoreEntitySet="images">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_account" ColumnName="id_account" />
+          <ScalarProperty Name="id_food_recipe" ColumnName="id_food_recipe" />
+          <ScalarProperty Name="review" ColumnName="review" />
+          <ScalarProperty Name="link_image" ColumnName="link_image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="type_recipe">
+      <EntityTypeMapping TypeName="web_food_recipeModel.type_recipe">
+        <MappingFragment StoreEntitySet="type_recipe">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

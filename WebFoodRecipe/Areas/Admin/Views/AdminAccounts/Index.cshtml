@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Models.EF.account>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+    <div class="content">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header card-header-warning">
+                            <h4 class="card-title">Account List</h4>
+                            <p class="card-category">
+                                @Html.ActionLink("Create New", "Create")
+                            </p>
+                        </div>
+                        <div class="card-body table-responsive">
+
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.name)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.email)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.image)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.phone)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.password)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.account_role.type)
+                                    </th>
+                                    <th></th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.name)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.email)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.image)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.phone)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.password)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.account_role.type)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                                            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                                        </td>
+                                    </tr>
+                                }
+
+                            </table>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>

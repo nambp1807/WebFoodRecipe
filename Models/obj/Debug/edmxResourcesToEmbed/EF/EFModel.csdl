@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="web_food_recipeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="account">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="number_phone" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="power" Type="Int32" />
+    <NavigationProperty Name="comments" Relationship="Self.account_comment_fk" FromRole="account" ToRole="comment" />
+    <NavigationProperty Name="images" Relationship="Self.account_img_fk" FromRole="account" ToRole="images" />
+  </EntityType>
+  <EntityType Name="comment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_account" Type="Int32" />
+    <Property Name="id_food_recipe" Type="Int32" />
+    <Property Name="id_faq" Type="Int32" />
+    <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="account" Relationship="Self.account_comment_fk" FromRole="comment" ToRole="account" />
+    <NavigationProperty Name="faq_question" Relationship="Self.faq_comment_fk" FromRole="comment" ToRole="faq_question" />
+    <NavigationProperty Name="food_recipe" Relationship="Self.food_recipe_comment_fk" FromRole="comment" ToRole="food_recipe" />
+  </EntityType>
+  <EntityType Name="faq_question">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="question" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="comments" Relationship="Self.faq_comment_fk" FromRole="faq_question" ToRole="comment" />
+  </EntityType>
+  <EntityType Name="food_recipe">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_type" Type="Int32" />
+    <Property Name="name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="pay_the_fee" Type="Int32" />
+    <Property Name="admin_check" Type="Int32" />
+    <NavigationProperty Name="comments" Relationship="Self.food_recipe_comment_fk" FromRole="food_recipe" ToRole="comment" />
+    <NavigationProperty Name="images" Relationship="Self.food_recipe_img_fk" FromRole="food_recipe" ToRole="images" />
+    <NavigationProperty Name="type_recipe" Relationship="Self.food_recipe_type_fk" FromRole="food_recipe" ToRole="type_recipe" />
+  </EntityType>
+  <EntityType Name="image">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_account" Type="Int32" />
+    <Property Name="id_food_recipe" Type="Int32" />
+    <Property Name="review" Type="Int32" />
+    <Property Name="link_image" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="account" Relationship="Self.account_img_fk" FromRole="images" ToRole="account" />
+    <NavigationProperty Name="food_recipe" Relationship="Self.food_recipe_img_fk" FromRole="images" ToRole="food_recipe" />
+  </EntityType>
+  <EntityType Name="type_recipe">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="food_recipe" Relationship="Self.food_recipe_type_fk" FromRole="type_recipe" ToRole="food_recipe" />
+  </EntityType>
+  <Association Name="account_comment_fk">
+    <End Role="account" Type="Self.account" Multiplicity="0..1" />
+    <End Role="comment" Type="Self.comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="account">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="comment">
+        <PropertyRef Name="id_account" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="account_img_fk">
+    <End Role="account" Type="Self.account" Multiplicity="0..1" />
+    <End Role="images" Type="Self.image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="account">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="images">
+        <PropertyRef Name="id_account" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="faq_comment_fk">
+    <End Role="faq_question" Type="Self.faq_question" Multiplicity="0..1" />
+    <End Role="comment" Type="Self.comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="faq_question">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="comment">
+        <PropertyRef Name="id_faq" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="food_recipe_comment_fk">
+    <End Role="food_recipe" Type="Self.food_recipe" Multiplicity="0..1" />
+    <End Role="comment" Type="Self.comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="food_recipe">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="comment">
+        <PropertyRef Name="id_food_recipe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="food_recipe_img_fk">
+    <End Role="food_recipe" Type="Self.food_recipe" Multiplicity="0..1" />
+    <End Role="images" Type="Self.image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="food_recipe">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="images">
+        <PropertyRef Name="id_food_recipe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="food_recipe_type_fk">
+    <End Role="type_recipe" Type="Self.type_recipe" Multiplicity="0..1" />
+    <End Role="food_recipe" Type="Self.food_recipe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="type_recipe">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="food_recipe">
+        <PropertyRef Name="id_type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="web_food_recipe_Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="accounts" EntityType="Self.account" />
+    <EntitySet Name="comments" EntityType="Self.comment" />
+    <EntitySet Name="faq_question" EntityType="Self.faq_question" />
+    <EntitySet Name="food_recipe" EntityType="Self.food_recipe" />
+    <EntitySet Name="images" EntityType="Self.image" />
+    <EntitySet Name="type_recipe" EntityType="Self.type_recipe" />
+    <AssociationSet Name="account_comment_fk" Association="Self.account_comment_fk">
+      <End Role="account" EntitySet="accounts" />
+      <End Role="comment" EntitySet="comments" />
+    </AssociationSet>
+    <AssociationSet Name="account_img_fk" Association="Self.account_img_fk">
+      <End Role="account" EntitySet="accounts" />
+      <End Role="images" EntitySet="images" />
+    </AssociationSet>
+    <AssociationSet Name="faq_comment_fk" Association="Self.faq_comment_fk">
+      <End Role="faq_question" EntitySet="faq_question" />
+      <End Role="comment" EntitySet="comments" />
+    </AssociationSet>
+    <AssociationSet Name="food_recipe_comment_fk" Association="Self.food_recipe_comment_fk">
+      <End Role="food_recipe" EntitySet="food_recipe" />
+      <End Role="comment" EntitySet="comments" />
+    </AssociationSet>
+    <AssociationSet Name="food_recipe_img_fk" Association="Self.food_recipe_img_fk">
+      <End Role="food_recipe" EntitySet="food_recipe" />
+      <End Role="images" EntitySet="images" />
+    </AssociationSet>
+    <AssociationSet Name="food_recipe_type_fk" Association="Self.food_recipe_type_fk">
+      <End Role="type_recipe" EntitySet="type_recipe" />
+      <End Role="food_recipe" EntitySet="food_recipe" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

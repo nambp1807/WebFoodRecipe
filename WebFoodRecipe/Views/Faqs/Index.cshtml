@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Models.EF.faq>
+
+@{
+    ViewBag.Title = "FAQ - Bunenu";
+    Layout = "~/Views/Shared/_LayoutAll.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/faq/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/faq/font-awesome/css/font-awesome.min.css" />
+
+<script type="text/javascript" src="~/Content/faq/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="~/Content/faq/bootstrap/js/bootstrap.min.js"></script>
+<div class="container">
+    <br />
+    <br />
+    <br />
+
+    <br />
+
+    <div class="panel-group" id="accordion">
+        <div class="faqHeader">FAQ Question</div>
+        @foreach (var item in Model)
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#@item.id">@item.question?</a>
+                    </h4>
+                </div>
+                <div id="@item.id" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        @item.answer
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+<style>
+    .faqHeader {
+        font-size: 27px;
+        margin: 20px;
+    }
+
+    .panel-heading [data-toggle="collapse"]:after {
+        font-family: 'Glyphicons Halflings';
+        content: "\e072"; /* "play" icon */
+        float: right;
+        color: #F58723;
+        font-size: 18px;
+        line-height: 22px;
+        /* rotate "play" icon from > (right arrow) to down arrow */
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+
+    .panel-heading [data-toggle="collapse"].collapsed:after {
+        /* rotate "play" icon from > (right arrow) to ^ (up arrow) */
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
+        color: #454444;
+    }
+</style>

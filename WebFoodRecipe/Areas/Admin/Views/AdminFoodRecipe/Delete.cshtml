@@ -1,0 +1,92 @@
+﻿@model Models.EF.food_recipe
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header card-header-warning">
+                            <h4>Are you sure want to delete this ?</h4>
+                            <p class="card-category">Delete</p>
+                        </div>
+                        <div class="card-body table-responsive">
+                            <h4>food_recipe</h4>
+                            <hr />
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.name)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.name)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.content)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.content)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.pay_the_fee)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.pay_the_fee)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.image)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.image)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.created_at)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.created_at)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.account.name)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.account.name)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.type_recipe.name)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.type_recipe.name)
+                                </dd>
+
+                            </dl>
+
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-actions no-color">
+                                    <input type="submit" value="Delete" class="btn btn-default" /> |
+                                    @Html.ActionLink("Back to List", "Index")
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,46 @@
+﻿@model Models.EF.faq
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header card-header-warning">
+                            <h4 class="card-title">Faq Detail</h4>
+                        </div>
+
+                        <div class="card-body table-responsive">
+                            <hr />
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.question)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.question)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.answer)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.answer)
+                                </dd>
+
+                            </dl>
+                        </div>
+                        <p>
+                            @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+                            @Html.ActionLink("Back to List", "Index")
+                        </p>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+

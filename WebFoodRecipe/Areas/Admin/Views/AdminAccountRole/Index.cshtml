@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Models.EF.account_role>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header card-header-warning">
+                            <h4 class="card-title">Accounts Role</h4>
+                            <p class="card-category">@Html.ActionLink("Create New", "Create")</p>
+                        </div>
+                        <div class="card-body table-responsive">
+                            
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.type)
+                                    </th>
+                                    <th></th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.type)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                                            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                                        </td>
+                                    </tr>
+                                }
+
+                            </table>
+                        </div>
+                    </div>
+                       
+                </div>
+        </div>
+    </div>
+
+
