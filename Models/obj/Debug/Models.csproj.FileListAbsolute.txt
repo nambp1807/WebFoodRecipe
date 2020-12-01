@@ -21,3 +21,15 @@ C:\Users\admin\Downloads\WebFoodRecipe\Models\bin\Debug\EntityFramework.SqlServe
 C:\Users\admin\Downloads\WebFoodRecipe\Models\bin\Debug\EntityFramework.xml
 C:\Users\admin\Downloads\WebFoodRecipe\Models\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\admin\Downloads\WebFoodRecipe\Models\obj\Debug\Models.csproj.CopyComplete
+C:\Users\thaih\source\repos\WebFoodRecipe\Models\bin\Debug\Models.dll.config
+C:\Users\thaih\source\repos\WebFoodRecipe\Models\bin\Debug\Models.dll
+C:\Users\thaih\source\repos\WebFoodRecipe\Models\bin\Debug\Models.pdb
+C:\Users\thaih\source\repos\WebFoodRecipe\Models\bin\Debug\EntityFramework.dll
+C:\Users\thaih\source\repos\WebFoodRecipe\Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\thaih\source\repos\WebFoodRecipe\Models\bin\Debug\EntityFramework.xml
+C:\Users\thaih\source\repos\WebFoodRecipe\Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\thaih\source\repos\WebFoodRecipe\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+C:\Users\thaih\source\repos\WebFoodRecipe\Models\obj\Debug\Models.csproj.CopyComplete
+C:\Users\thaih\source\repos\WebFoodRecipe\Models\obj\Debug\Models.dll
+C:\Users\thaih\source\repos\WebFoodRecipe\Models\obj\Debug\Models.pdb
+C:\Users\thaih\source\repos\WebFoodRecipe\Models\obj\Debug\Models.csprojAssemblyReference.cache
